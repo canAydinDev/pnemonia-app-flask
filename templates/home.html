@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My flask app</title>
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{url_for('static', filename='./style.css')}}"
+    />
+    <link rel="stylesheet" type="text/css" href="../static/bootstrap.min.css" />
+  </head>
+  <body>
+    <nav class="navbar fixed-top navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand" href="#">canaydin263</a>
+        <a class="navbar-brand" href="{{url_for('home')}}">Home</a>
+        <a class="navbar-brand" href="#">About</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+          aria-controls="navbarNav"
+          aria-expanded="false"
+          aria-label="Toggle navigation"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </nav>
+    <div class="main">
+      <h4 class="predict">Modeli kullan</h4>
+      <form action="/predict" method="POST" enctype="multipart/form-data">
+        <input type="file" name="img" id="img" required="required" />
+        <button type="submit" class="btn btn-primary btn-block btn-large">
+          Çalıştır
+        </button>
+      </form>
+
+      <br />
+      <br />
+      <div class="predict">
+        <p>Prediction: {{prediction}}</p>
+      </div>
+    </div>
+  </body>
+</html>
